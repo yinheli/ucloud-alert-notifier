@@ -63,7 +63,7 @@ impl TextMessage {
 
         if let Some(secret) = secret {
             let t = Local::now().timestamp().to_string();
-            let str_to_sign = format!("{}\n{}", t.clone(), secret);
+            let str_to_sign = format!("{t}\n{secret}");
             type HmacSha256 = Hmac<sha2::Sha256>;
             let mut mac = HmacSha256::new_from_slice(str_to_sign.as_bytes()).unwrap();
             mac.update(b"");

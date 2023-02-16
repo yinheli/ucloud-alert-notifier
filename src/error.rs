@@ -24,7 +24,7 @@ impl<T, E: std::fmt::Debug> IntoHttpError<T> for core::result::Result<T, E> {
         match self {
             Ok(val) => Ok(val),
             Err(err) => Err(error::InternalError::new(
-                format!("{}, {:?}", message.to_string(), err),
+                format!("{message}, {err:?}"),
                 status_code,
             )
             .into()),

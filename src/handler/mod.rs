@@ -49,7 +49,7 @@ pub async fn notify(
     alert: web::Json<Alert>,
 ) -> actix_web::Result<impl Responder> {
     feishu
-        .send_text(format!("{}", alert))
+        .send_text(format!("{alert}"))
         .await
         .http_error("send feishu failed", StatusCode::INTERNAL_SERVER_ERROR)?;
     Ok("ok")
