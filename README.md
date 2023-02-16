@@ -28,6 +28,24 @@ Options:
 
 Refer: https://console.ucloud.cn/umon/contact
 
+## Test
+
+Send test via curl.
+
+```bash
+curl -X "POST" "http://xxxx/push" \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{
+  "Region": " cn-north-03",
+  "ResourceType": "uhost",
+  "AlarmTime": 1458733318,
+  "content": "test ucloud alert webhook",
+  "MetricName": "MemUsage",
+  "ResourceId": "uhost-xxxx",
+  "SessionID": "xx"
+}'
+```
+
 ## Resources
 
 - https://docs.ucloud.cn/umon/guide/webhook
