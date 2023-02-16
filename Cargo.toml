@@ -1,0 +1,38 @@
+[package]
+name = "ucloud-alert-notifier"
+version = "0.1.0"
+authors = ["yinheli <me@yinheli.com>"]
+edition = "2021"
+repository = ""
+documentation = ""
+homepage = ""
+readme = "README.md"
+description = """
+ucloud alert notifier handler
+"""
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "4", features = ["derive", "env"] }
+log = "0.4"
+env_logger = "0.10"
+actix-web = "4"
+anyhow = "1"
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.11", features = [
+  "rustls-tls",
+], default-features = false }
+chrono = "0.4"
+hmac = "0.12"
+sha2 = "0.10"
+hex = "0.4"
+base64 = "0.21"
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
+codegen-units = 1
+panic = 'abort'
