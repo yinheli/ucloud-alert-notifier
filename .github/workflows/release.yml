@@ -66,9 +66,9 @@ jobs:
       - name: Post Build | Prepare artifacts [-nix]
         if: matrix.os != 'windows-latest'
         run: |
-          cp -r config README.md target/${{ matrix.target }}/release
+          cp -r README.md target/${{ matrix.target }}/release
           cd target/${{ matrix.target }}/release
-          tar czvf ../../../${{ matrix.name }} kungfu config README.md
+          tar czvf ../../../${{ matrix.name }} ucloud-alert-notifier README.md
           cd -
       - name: Deploy | Upload artifacts
         uses: actions/upload-artifact@v3
