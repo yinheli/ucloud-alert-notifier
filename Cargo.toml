@@ -1,6 +1,6 @@
 [package]
 name = "ucloud-alert-notifier"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["yinheli <me@yinheli.com>"]
 edition = "2021"
 repository = ""
